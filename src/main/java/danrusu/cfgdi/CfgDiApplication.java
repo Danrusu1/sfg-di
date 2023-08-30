@@ -1,9 +1,6 @@
 package danrusu.cfgdi;
 
-import danrusu.cfgdi.controllers.ConstructorInjectedController;
-import danrusu.cfgdi.controllers.MyController;
-import danrusu.cfgdi.controllers.PropertyInjectedController;
-import danrusu.cfgdi.controllers.SetterGetterController;
+import danrusu.cfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,10 +11,12 @@ public class CfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(CfgDiApplication.class, args);
 
-		MyController myController = (MyController) context.getBean("myController");
+		I18nController i18nController = (I18nController) context.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+		System.out.println("-------- Primary Bean");
+		MyController myController = (MyController) context.getBean("myController");
+		System.out.println(myController.sayHello());
 
 		System.out.println("-------- Property");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) context.getBean("propertyInjectedController");
