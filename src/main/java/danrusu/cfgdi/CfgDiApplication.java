@@ -11,6 +11,10 @@ public class CfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(CfgDiApplication.class, args);
 
+		System.out.println("-------- Pet Service");
+		PetController petController = context.getBean("petController", PetController.class);
+		System.out.println(petController.whichPetIsTheBest());
+
 		I18nController i18nController = (I18nController) context.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
 
