@@ -1,7 +1,6 @@
 package danrusu.cfgdi.controllers;
 
-import danrusu.cfgdi.services.PetService;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.springframwork.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 /**
